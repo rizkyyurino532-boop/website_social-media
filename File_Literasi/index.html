@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="id" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Konekta - Platform Media Sosial Komunitas Digital Indonesia"
+    />
+    <title>Masuk atau Daftar — Konekta</title>
+
+    <!-- Google Fonts: Inter & Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome Icons CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/pages.css" />
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+  </head>
+  <body data-page="auth">
+    <main class="auth-page">
+      <div class="auth-container">
+        <!-- Left Hero Section -->
+        <section class="auth-hero" aria-label="Tentang Konekta">
+          <div>
+            <div class="brand-logo">
+              <div class="brand-logo-icon">K</div>
+              <span class="font-bold text-xl">Konekta</span>
+            </div>
+          </div>
+
+          <div>
+            <h1 class="auth-hero-title">
+              Terhubung, Berbagi Ide, dan Tumbuh Bersama.
+            </h1>
+            <p class="auth-hero-subtitle">
+              Ruang diskusi komunitas kreatif, teknologi, dan literasi data
+              Indonesia.
+            </p>
+
+            <ul class="auth-feature-list">
+              <li class="auth-feature-item">
+                <i class="fa-solid fa-bolt"></i>
+                <span
+                  >Feed interaktif, Stories 24 jam, dan eksplorasi tren
+                  real-time</span
+                >
+              </li>
+              <li class="auth-feature-item">
+                <i class="fa-solid fa-comments"></i>
+                <span
+                  >Obrolan langsung dengan simulasi balasan cerdas &amp;
+                  emoji</span
+                >
+              </li>
+              <li class="auth-feature-item">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span
+                  >100% berjalan di browser dengan LocalStorage &amp;
+                  IndexedDB</span
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div class="text-xs">
+            &copy; 2026 Konekta Indonesia &bull; Dibangun dengan HTML5, CSS3
+            &amp; Vanilla JS
+          </div>
+        </section>
+
+        <!-- Right Form Panel -->
+        <section class="auth-form-panel" aria-label="Formulir Autentikasi">
+          <div class="flex items-center justify-between">
+            <div class="brand-logo">
+              <div class="brand-logo-icon">K</div>
+              <span class="brand-logo-text">Konekta</span>
+            </div>
+            <button
+              type="button"
+              class="btn-icon"
+              id="auth-theme-btn"
+              aria-label="Ubah Tema Gelap atau Terang"
+              title="Ubah Tema"
+            >
+              <i data-theme-icon class="fa-solid fa-moon"></i>
+            </button>
+          </div>
+
+          <div class="auth-tabs" role="tablist">
+            <button
+              type="button"
+              class="auth-tab-btn active"
+              id="tab-login"
+              role="tab"
+              aria-selected="true"
+            >
+              Masuk
+            </button>
+            <button
+              type="button"
+              class="auth-tab-btn"
+              id="tab-register"
+              role="tab"
+              aria-selected="false"
+            >
+              Daftar Akun
+            </button>
+          </div>
+
+          <!-- Login Form -->
+          <form id="login-form" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="login-identifier"
+                >Username atau Email</label
+              >
+              <div class="input-wrapper">
+                <i class="fa-regular fa-user input-icon-left"></i>
+                <input
+                  type="text"
+                  id="login-identifier"
+                  class="form-control has-icon-left"
+                  placeholder="Contoh: arif_hidayat atau arif@konekta.id"
+                  autocomplete="username"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="login-password">Password</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-lock input-icon-left"></i>
+                <input
+                  type="password"
+                  id="login-password"
+                  class="form-control has-icon-left has-icon-right"
+                  placeholder="Masukkan password (contoh: arifhidayat123)"
+                  autocomplete="current-password"
+                  required
+                />
+                <button
+                  type="button"
+                  class="input-action-right"
+                  data-toggle-password="login-password"
+                  aria-label="Tampilkan password"
+                >
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+              </div>
+              <span class="form-error" id="login-error" role="alert"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-lg">
+              <i class="fa-solid fa-right-to-bracket"></i>
+              <span>Masuk ke Konekta</span>
+            </button>
+          </form>
+
+          <!-- Register Form -->
+          <form id="register-form" class="hidden" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="reg-name">Nama Lengkap</label>
+              <div class="input-wrapper">
+                <i class="fa-regular fa-id-card input-icon-left"></i>
+                <input
+                  type="text"
+                  id="reg-name"
+                  class="form-control has-icon-left"
+                  placeholder="Nama lengkap Anda"
+                  required
+                />
+              </div>
+              <span class="form-error" id="reg-error-name"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="reg-username">Username</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-at input-icon-left"></i>
+                <input
+                  type="text"
+                  id="reg-username"
+                  class="form-control has-icon-left"
+                  placeholder="huruf_kecil_angka"
+                  required
+                />
+              </div>
+              <span class="form-error" id="reg-error-username"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="reg-email">Alamat Email</label>
+              <div class="input-wrapper">
+                <i class="fa-regular fa-envelope input-icon-left"></i>
+                <input
+                  type="email"
+                  id="reg-email"
+                  class="form-control has-icon-left"
+                  placeholder="nama@email.com"
+                  required
+                />
+              </div>
+              <span class="form-error" id="reg-error-email"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="reg-password">Password</label>
+              <div class="input-wrapper">
+                <i class="fa-solid fa-lock input-icon-left"></i>
+                <input
+                  type="password"
+                  id="reg-password"
+                  class="form-control has-icon-left has-icon-right"
+                  placeholder="Minimal 6 karakter"
+                  required
+                />
+                <button
+                  type="button"
+                  class="input-action-right"
+                  data-toggle-password="reg-password"
+                  aria-label="Tampilkan password"
+                >
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+              </div>
+              <span class="form-error" id="reg-error-password"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="reg-confirm-password"
+                >Konfirmasi Password</label
+              >
+              <div class="input-wrapper">
+                <i class="fa-solid fa-shield-halved input-icon-left"></i>
+                <input
+                  type="password"
+                  id="reg-confirm-password"
+                  class="form-control has-icon-left has-icon-right"
+                  placeholder="Ulangi password Anda"
+                  required
+                />
+                <button
+                  type="button"
+                  class="input-action-right"
+                  data-toggle-password="reg-confirm-password"
+                  aria-label="Tampilkan konfirmasi password"
+                >
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+              </div>
+              <span class="form-error" id="reg-error-confirmPassword"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-lg">
+              <i class="fa-solid fa-user-plus"></i>
+              <span>Buat Akun Sekarang</span>
+            </button>
+          </form>
+
+          <!-- Instant Demo Account Switcher -->
+          <div class="demo-accounts-box">
+            <p class="demo-accounts-title">
+              Masuk Cepat dengan Akun Simulasi (1-Klik)
+            </p>
+            <div class="demo-chips" id="demo-accounts-chips"></div>
+            <p class="form-hint" id="demo-password-hint">
+              Login Arif: <strong>arif_hidayat</strong> (Password:
+              <strong>arifhidayat123</strong>) &bull; Akun lain:
+              <strong>password123</strong>
+            </p>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- Application Scripts -->
+    <script defer src="js/storage.js"></script>
+    <script defer src="js/seed.js"></script>
+    <script defer src="js/ui.js"></script>
+    <script defer src="js/auth.js"></script>
+    <script defer src="js/notifications.js"></script>
+    <script defer src="js/users.js"></script>
+    <script defer src="js/posts.js"></script>
+    <script defer src="js/chat.js"></script>
+    <script defer src="js/app.js"></script>
+  </body>
+</html>

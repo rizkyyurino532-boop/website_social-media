@@ -1,0 +1,385 @@
+/* ==========================================================================
+   LAYOUT.CSS - Responsive 3-Column App Layout, Sidebars & Mobile Navigation
+   ========================================================================== */
+
+/* Main App Shell (Mobile-First, expands to 3-column on desktop) */
+.app-layout {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-5);
+  padding: 0 var(--space-3) calc(var(--bottom-nav-height) + var(--space-4));
+}
+
+/* Left Sidebar Navigation */
+.sidebar-left {
+  display: none;
+}
+
+/* Center Content Column */
+.main-content {
+  width: 100%;
+  max-width: var(--feed-max-width);
+  margin: 0 auto;
+  min-width: 0;
+  padding-top: var(--space-3);
+}
+
+/* Messages page allows wider center column when right sidebar is hidden */
+.main-content.wide-content {
+  max-width: 960px;
+}
+
+/* Right Sidebar Widgets */
+.sidebar-right {
+  display: none;
+}
+
+/* Sticky Top Header inside Center Column */
+.page-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  background-color: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 0.75rem var(--space-4);
+  margin-bottom: var(--space-4);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+
+.page-header-title {
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* Feed Filter Tabs */
+.tabs-nav {
+  display: flex;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 4px;
+  margin-bottom: var(--space-4);
+  gap: 4px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 0.55rem var(--space-3);
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: var(--text-secondary);
+  border-radius: var(--radius-md);
+  text-align: center;
+  transition: all var(--transition-fast);
+}
+
+.tab-btn:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-surface-hover);
+}
+
+.tab-btn.active {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  box-shadow: var(--shadow-xs);
+}
+
+/* Brand Logo in Sidebar / Mobile Header */
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  text-decoration: none;
+}
+
+.brand-logo-icon {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  background: var(--gradient-brand);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-bold);
+  font-size: var(--text-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.brand-logo-text {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+  background: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Sidebar Navigation Links */
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: var(--space-4);
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem var(--space-4);
+  border-radius: var(--radius-lg);
+  color: var(--text-secondary);
+  font-size: var(--text-md);
+  font-weight: var(--font-medium);
+  transition: all var(--transition-fast);
+}
+
+.nav-link-left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.nav-link i {
+  font-size: 1.2rem;
+  width: 24px;
+  text-align: center;
+}
+
+.nav-link:hover {
+  background-color: var(--bg-surface-hover);
+  color: var(--text-primary);
+}
+
+.nav-link.active {
+  background-color: var(--color-primary-soft);
+  color: var(--color-primary);
+  font-weight: var(--font-bold);
+}
+
+/* Sidebar Mini User Card at Bottom */
+.sidebar-user-card {
+  margin-top: auto;
+  padding: var(--space-3);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.sidebar-user-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.sidebar-user-text {
+  min-width: 0;
+}
+
+.sidebar-user-name {
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sidebar-user-handle {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Right Sidebar List Items (Trending & Suggestions) */
+.trending-list,
+.suggestion-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.trending-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.trending-item:hover {
+  background-color: var(--bg-surface-hover);
+}
+
+.trending-tag {
+  font-size: var(--text-sm);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+}
+
+.trending-count {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.suggestion-user {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-width: 0;
+}
+
+.suggestion-meta {
+  min-width: 0;
+}
+
+.suggestion-name {
+  font-size: var(--text-sm);
+  font-weight: var(--font-semibold);
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+
+.suggestion-handle {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  display: block;
+}
+
+/* Mobile Bottom Navigation Bar */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: var(--bottom-nav-height);
+  background-color: var(--bg-glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid var(--border-color);
+  z-index: var(--z-bottom-nav);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 var(--space-2);
+}
+
+.bottom-nav-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: var(--font-medium);
+  padding: 6px 12px;
+  border-radius: var(--radius-md);
+}
+
+.bottom-nav-item i {
+  font-size: 1.2rem;
+}
+
+.bottom-nav-item.active {
+  color: var(--color-primary);
+  font-weight: var(--font-bold);
+}
+
+.bottom-nav-item .badge-count {
+  position: absolute;
+  top: 2px;
+  right: 6px;
+  min-width: 16px;
+  height: 16px;
+  font-size: 10px;
+}
+
+/* Tablet Layout (>= 768px): Show Left Sidebar, Hide Bottom Nav */
+@media (min-width: 768px) {
+  .app-layout {
+    grid-template-columns: var(--sidebar-left-width) minmax(0, 1fr);
+    padding: 0 var(--space-4) var(--space-6);
+  }
+
+  .sidebar-left {
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    padding: var(--space-4) 0;
+  }
+
+  .bottom-nav {
+    display: none;
+  }
+
+  .toast-container {
+    bottom: var(--space-5);
+  }
+}
+
+/* Desktop 3-Column Layout (>= 1100px): Left Sidebar + Center Feed + Right Widgets */
+@media (min-width: 1100px) {
+  .app-layout {
+    grid-template-columns: var(--sidebar-left-width) minmax(0, 1fr) var(
+        --sidebar-right-width
+      );
+    gap: var(--space-6);
+    padding: 0 var(--space-6) var(--space-6);
+  }
+
+  .app-layout.two-columns {
+    grid-template-columns: var(--sidebar-left-width) minmax(0, 1fr);
+  }
+
+  .sidebar-right {
+    display: block;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    padding: var(--space-4) 0;
+    scrollbar-width: none;
+  }
+
+  .sidebar-right::-webkit-scrollbar {
+    display: none;
+  }
+}

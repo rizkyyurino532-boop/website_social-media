@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="id" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Notifikasi Konekta - Aktivitas Komunitas Anda"
+    />
+    <title>Notifikasi — Konekta</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/pages.css" />
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+  </head>
+  <body data-page="notifications">
+    <div class="app-layout">
+      <!-- Left Navigation Sidebar -->
+      <aside
+        class="sidebar-left"
+        id="sidebar-left"
+        aria-label="Menu Samping Kiri"
+      ></aside>
+
+      <!-- Main Center Notifications Column -->
+      <main class="main-content">
+        <header class="page-header">
+          <h1 class="page-header-title">
+            <i class="fa-solid fa-bell text-primary-brand"></i>
+            <span>Notifikasi</span>
+          </h1>
+          <div class="flex items-center gap-2">
+            <button
+              type="button"
+              class="btn btn-outline btn-sm"
+              id="btn-simulate-notif"
+              title="Simulasikan notifikasi masuk real-time"
+            >
+              <i class="fa-solid fa-wand-magic-sparkles"></i>
+              <span>Simulasi Aktivitas</span>
+            </button>
+            <button
+              type="button"
+              class="btn btn-secondary btn-sm"
+              id="btn-mark-all-read"
+              title="Tandai semua notifikasi sudah dibaca"
+            >
+              <i class="fa-solid fa-check-double"></i>
+              <span>Tandai Dibaca</span>
+            </button>
+          </div>
+        </header>
+
+        <!-- Notification Filter Tabs -->
+        <nav class="tabs-nav" aria-label="Filter Notifikasi">
+          <button type="button" class="tab-btn active" data-notif-tab="all">
+            Semua Aktivitas
+          </button>
+          <button type="button" class="tab-btn" data-notif-tab="mention">
+            <i class="fa-solid fa-at"></i> Sebutan (Mention)
+          </button>
+          <button type="button" class="tab-btn" data-notif-tab="unread">
+            Belum Dibaca
+          </button>
+        </nav>
+
+        <!-- Notifications List -->
+        <section
+          class="notification-list"
+          id="notifications-list"
+          aria-label="Daftar Notifikasi"
+        ></section>
+      </main>
+
+      <!-- Right Widgets Sidebar -->
+      <aside
+        class="sidebar-right"
+        id="sidebar-right"
+        aria-label="Tren dan Rekomendasi"
+      ></aside>
+    </div>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <nav
+      class="bottom-nav"
+      id="bottom-nav"
+      aria-label="Navigasi Bawah Mobile"
+    ></nav>
+
+    <!-- Application Scripts -->
+    <script defer src="js/storage.js"></script>
+    <script defer src="js/seed.js"></script>
+    <script defer src="js/ui.js"></script>
+    <script defer src="js/auth.js"></script>
+    <script defer src="js/notifications.js"></script>
+    <script defer src="js/users.js"></script>
+    <script defer src="js/posts.js"></script>
+    <script defer src="js/chat.js"></script>
+    <script defer src="js/app.js"></script>
+  </body>
+</html>

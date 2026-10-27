@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="id" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Eksplorasi Konekta - Temukan Hashtag Populer, Diskusi & Pengguna"
+    />
+    <title>Eksplorasi — Konekta</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/pages.css" />
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+  </head>
+  <body data-page="explore">
+    <div class="app-layout">
+      <!-- Left Navigation Sidebar -->
+      <aside
+        class="sidebar-left"
+        id="sidebar-left"
+        aria-label="Menu Samping Kiri"
+      ></aside>
+
+      <!-- Main Center Explore Column -->
+      <main class="main-content">
+        <header class="page-header">
+          <h1 class="page-header-title">
+            <i class="fa-solid fa-compass text-primary-brand"></i>
+            <span>Eksplorasi</span>
+          </h1>
+          <button
+            type="button"
+            class="btn-icon"
+            data-action="toggle-theme"
+            aria-label="Ubah Tema Gelap atau Terang"
+            title="Ubah Tema"
+          >
+            <i data-theme-icon class="fa-solid fa-moon"></i>
+          </button>
+        </header>
+
+        <!-- Real-Time Debounced Search Box & Hashtag Chips -->
+        <section class="explore-search-bar" aria-label="Pencarian Real-Time">
+          <div class="input-wrapper">
+            <i class="fa-solid fa-magnifying-glass input-icon-left"></i>
+            <input
+              type="search"
+              id="explore-search-input"
+              class="form-control has-icon-left has-icon-right"
+              placeholder="Ketik untuk mencari postingan, #hashtag, atau @pengguna..."
+              aria-label="Pencarian Eksplorasi"
+            />
+            <button
+              type="button"
+              class="input-action-right hidden"
+              id="explore-search-clear"
+              aria-label="Bersihkan pencarian"
+            >
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <div
+            class="hashtag-chips-bar"
+            id="explore-hashtag-chips"
+            aria-label="Hashtag Populer"
+          ></div>
+        </section>
+
+        <!-- Explore Category Tabs -->
+        <nav class="tabs-nav" aria-label="Kategori Eksplorasi">
+          <button
+            type="button"
+            class="tab-btn active"
+            data-explore-tab="popular"
+          >
+            <i class="fa-solid fa-fire"></i> Populer
+          </button>
+          <button type="button" class="tab-btn" data-explore-tab="latest">
+            <i class="fa-regular fa-clock"></i> Terbaru
+          </button>
+          <button type="button" class="tab-btn" data-explore-tab="users">
+            <i class="fa-solid fa-users"></i> Pengguna
+          </button>
+          <button type="button" class="tab-btn" data-explore-tab="tags">
+            <i class="fa-solid fa-hashtag"></i> Tren
+          </button>
+        </nav>
+
+        <!-- Explore Results Container -->
+        <section
+          id="explore-results-container"
+          aria-label="Hasil Eksplorasi"
+        ></section>
+      </main>
+
+      <!-- Right Widgets Sidebar -->
+      <aside
+        class="sidebar-right"
+        id="sidebar-right"
+        aria-label="Tren dan Rekomendasi"
+      ></aside>
+    </div>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <nav
+      class="bottom-nav"
+      id="bottom-nav"
+      aria-label="Navigasi Bawah Mobile"
+    ></nav>
+
+    <!-- Application Scripts -->
+    <script defer src="js/storage.js"></script>
+    <script defer src="js/seed.js"></script>
+    <script defer src="js/ui.js"></script>
+    <script defer src="js/auth.js"></script>
+    <script defer src="js/notifications.js"></script>
+    <script defer src="js/users.js"></script>
+    <script defer src="js/posts.js"></script>
+    <script defer src="js/chat.js"></script>
+    <script defer src="js/app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="id" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Pengaturan Akun, Tema, dan Privasi Konekta"
+    />
+    <title>Pengaturan — Konekta</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/pages.css" />
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+  </head>
+  <body data-page="settings">
+    <div class="app-layout">
+      <!-- Left Navigation Sidebar -->
+      <aside
+        class="sidebar-left"
+        id="sidebar-left"
+        aria-label="Menu Samping Kiri"
+      ></aside>
+
+      <!-- Main Center Settings Column -->
+      <main class="main-content">
+        <header class="page-header">
+          <h1 class="page-header-title">
+            <i class="fa-solid fa-gear text-primary-brand"></i>
+            <span>Pengaturan</span>
+          </h1>
+        </header>
+
+        <!-- 1. Theme Preferences -->
+        <section class="settings-section" aria-label="Pengaturan Tampilan">
+          <h2 class="settings-section-title">
+            <i class="fa-solid fa-palette text-primary-brand"></i>
+            <span>Tampilan &amp; Tema</span>
+          </h2>
+          <p class="settings-section-desc">
+            Pilih mode tampilan aplikasi atau sesuaikan otomatis dengan sistem
+            operasi perangkat Anda.
+          </p>
+
+          <div class="theme-selector-grid">
+            <div
+              class="theme-option-card"
+              data-theme-choice="light"
+              role="button"
+              tabindex="0"
+            >
+              <i class="fa-solid fa-sun text-xl"></i>
+              <div class="font-semibold text-sm">Terang</div>
+              <span class="text-xs text-muted">Light Mode</span>
+            </div>
+
+            <div
+              class="theme-option-card"
+              data-theme-choice="dark"
+              role="button"
+              tabindex="0"
+            >
+              <i class="fa-solid fa-moon text-xl"></i>
+              <div class="font-semibold text-sm">Gelap</div>
+              <span class="text-xs text-muted">Dark Mode</span>
+            </div>
+
+            <div
+              class="theme-option-card"
+              data-theme-choice="system"
+              role="button"
+              tabindex="0"
+            >
+              <i class="fa-solid fa-desktop text-xl"></i>
+              <div class="font-semibold text-sm">Sistem</div>
+              <span class="text-xs text-muted">Otomatis</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- 2. Account & Privacy -->
+        <section class="settings-section" aria-label="Akun dan Privasi">
+          <h2 class="settings-section-title">
+            <i class="fa-solid fa-user-shield text-primary-brand"></i>
+            <span>Identitas Akun &amp; Privasi</span>
+          </h2>
+          <p class="settings-section-desc">
+            Perbarui username, nama tampilan, serta pengaturan privasi profil
+            Anda.
+          </p>
+
+          <form id="settings-account-form" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="settings-name"
+                >Nama Tampilan</label
+              >
+              <input
+                type="text"
+                id="settings-name"
+                class="form-control"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="settings-username"
+                >Username (@handle)</label
+              >
+              <div class="input-wrapper">
+                <i class="fa-solid fa-at input-icon-left"></i>
+                <input
+                  type="text"
+                  id="settings-username"
+                  class="form-control has-icon-left"
+                  required
+                />
+              </div>
+              <span class="form-hint"
+                >Hanya huruf kecil, angka, dan garis bawah (3-20
+                karakter).</span
+              >
+            </div>
+
+            <div class="setting-row">
+              <div>
+                <div class="text-sm font-semibold">Akun Privat</div>
+                <span class="text-xs text-muted">
+                  Tampilkan ikon gembok privasi pada profil Anda.
+                </span>
+              </div>
+              <label class="switch" aria-label="Aktifkan Akun Privat">
+                <input type="checkbox" id="settings-private-toggle" />
+                <span class="switch-slider"></span>
+              </label>
+            </div>
+
+            <div class="flex justify-between items-center">
+              <span></span>
+              <button type="submit" class="btn btn-primary">
+                <i class="fa-solid fa-floppy-disk"></i>
+                <span>Simpan Pengaturan Akun</span>
+              </button>
+            </div>
+          </form>
+        </section>
+
+        <!-- 3. Change Password -->
+        <section class="settings-section" aria-label="Keamanan Password">
+          <h2 class="settings-section-title">
+            <i class="fa-solid fa-key text-primary-brand"></i>
+            <span>Ubah Password (SHA-256)</span>
+          </h2>
+          <p class="settings-section-desc">
+            Password disimpan dalam bentuk hash kriptografi SHA-256 melalui Web
+            Crypto API.
+          </p>
+
+          <form id="settings-password-form" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="settings-current-password"
+                >Password Saat Ini</label
+              >
+              <div class="input-wrapper">
+                <i class="fa-solid fa-lock input-icon-left"></i>
+                <input
+                  type="password"
+                  id="settings-current-password"
+                  class="form-control has-icon-left has-icon-right"
+                  placeholder="Masukkan password saat ini"
+                  required
+                />
+                <button
+                  type="button"
+                  class="input-action-right"
+                  data-toggle-password="settings-current-password"
+                  aria-label="Tampilkan password saat ini"
+                >
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="settings-new-password"
+                >Password Baru</label
+              >
+              <div class="input-wrapper">
+                <i class="fa-solid fa-shield-halved input-icon-left"></i>
+                <input
+                  type="password"
+                  id="settings-new-password"
+                  class="form-control has-icon-left has-icon-right"
+                  placeholder="Minimal 6 karakter"
+                  required
+                />
+                <button
+                  type="button"
+                  class="input-action-right"
+                  data-toggle-password="settings-new-password"
+                  aria-label="Tampilkan password baru"
+                >
+                  <i class="fa-regular fa-eye"></i>
+                </button>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-outline">
+              <i class="fa-solid fa-rotate"></i>
+              <span>Perbarui Password</span>
+            </button>
+          </form>
+        </section>
+
+        <!-- 4. Blocked & Muted Users -->
+        <section class="settings-section" aria-label="Daftar Blokir dan Bisu">
+          <h2 class="settings-section-title">
+            <i class="fa-solid fa-ban text-primary-brand"></i>
+            <span>Akun yang Diblokir &amp; Dibisukan</span>
+          </h2>
+          <p class="settings-section-desc">
+            Kelola daftar pengguna yang Anda blokir atau bisukan dari feed
+            beranda.
+          </p>
+          <div id="settings-blocked-muted-list"></div>
+        </section>
+
+        <!-- 5. Storage & Danger Zone -->
+        <section
+          class="settings-section"
+          aria-label="Manajemen Data dan Zona Bahaya"
+        >
+          <h2 class="settings-section-title text-danger">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <span>Penyimpanan Browser &amp; Zona Bahaya</span>
+          </h2>
+          <p class="settings-section-desc" id="settings-storage-usage">
+            Menghitung kapasitas penyimpanan...
+          </p>
+
+          <div class="setting-row">
+            <div>
+              <div class="text-sm font-semibold">
+                Reset Semua Data ke Awal (Seed)
+              </div>
+              <span class="text-xs text-muted">
+                Menghapus seluruh perubahan dan mengembalikan 9 akun dummy serta
+                22+ postingan awal.
+              </span>
+            </div>
+            <button
+              type="button"
+              class="btn btn-danger-outline btn-sm"
+              id="btn-reset-all-data"
+            >
+              <i class="fa-solid fa-rotate-left"></i>
+              <span>Reset Data</span>
+            </button>
+          </div>
+
+          <div class="setting-row">
+            <div>
+              <div class="text-sm font-semibold text-danger">
+                Hapus Akun Saya
+              </div>
+              <span class="text-xs text-muted">
+                Menghapus akun Anda saat ini beserta seluruh postingan dan story
+                secara permanen.
+              </span>
+            </div>
+            <button
+              type="button"
+              class="btn btn-danger btn-sm"
+              id="btn-delete-account"
+            >
+              <i class="fa-regular fa-trash-can"></i>
+              <span>Hapus Akun</span>
+            </button>
+          </div>
+        </section>
+      </main>
+
+      <!-- Right Widgets Sidebar -->
+      <aside
+        class="sidebar-right"
+        id="sidebar-right"
+        aria-label="Tren dan Rekomendasi"
+      ></aside>
+    </div>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <nav
+      class="bottom-nav"
+      id="bottom-nav"
+      aria-label="Navigasi Bawah Mobile"
+    ></nav>
+
+    <!-- Application Scripts -->
+    <script defer src="js/storage.js"></script>
+    <script defer src="js/seed.js"></script>
+    <script defer src="js/ui.js"></script>
+    <script defer src="js/auth.js"></script>
+    <script defer src="js/notifications.js"></script>
+    <script defer src="js/users.js"></script>
+    <script defer src="js/posts.js"></script>
+    <script defer src="js/chat.js"></script>
+    <script defer src="js/app.js"></script>
+  </body>
+</html>

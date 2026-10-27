@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="id" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Pesan Langsung Konekta - Ngobrol dengan Komunitas"
+    />
+    <title>Pesan — Konekta</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/variables.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/components.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/pages.css" />
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg" />
+  </head>
+  <body data-page="messages">
+    <div class="app-layout two-columns">
+      <!-- Left Navigation Sidebar -->
+      <aside
+        class="sidebar-left"
+        id="sidebar-left"
+        aria-label="Menu Samping Kiri"
+      ></aside>
+
+      <!-- Main Center Chat Interface -->
+      <main class="main-content wide-content">
+        <header class="page-header">
+          <h1 class="page-header-title">
+            <i class="fa-solid fa-paper-plane text-primary-brand"></i>
+            <span>Pesan Langsung</span>
+          </h1>
+          <div class="flex items-center gap-2">
+            <button
+              type="button"
+              class="btn btn-primary btn-sm"
+              id="btn-new-chat"
+            >
+              <i class="fa-solid fa-plus"></i>
+              <span>Chat Baru</span>
+            </button>
+            <button
+              type="button"
+              class="btn-icon"
+              data-action="toggle-theme"
+              aria-label="Ubah Tema Gelap atau Terang"
+              title="Ubah Tema"
+            >
+              <i data-theme-icon class="fa-solid fa-moon"></i>
+            </button>
+          </div>
+        </header>
+
+        <!-- Split Chat Container -->
+        <section
+          class="chat-container"
+          id="chat-container"
+          aria-label="Jendela Obrolan"
+        >
+          <!-- Left Conversations List -->
+          <div class="chat-sidebar">
+            <div class="chat-sidebar-header">
+              <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass input-icon-left"></i>
+                <input
+                  type="search"
+                  id="chat-search-input"
+                  class="form-control"
+                  placeholder="Cari percakapan..."
+                  aria-label="Cari percakapan"
+                />
+              </div>
+            </div>
+            <div
+              class="chat-conversation-list"
+              id="chat-conversation-list"
+              role="list"
+            ></div>
+          </div>
+
+          <!-- Right Active Conversation Window -->
+          <div class="chat-window" id="chat-window"></div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Mobile Bottom Navigation Bar -->
+    <nav
+      class="bottom-nav"
+      id="bottom-nav"
+      aria-label="Navigasi Bawah Mobile"
+    ></nav>
+
+    <!-- Application Scripts -->
+    <script defer src="js/storage.js"></script>
+    <script defer src="js/seed.js"></script>
+    <script defer src="js/ui.js"></script>
+    <script defer src="js/auth.js"></script>
+    <script defer src="js/notifications.js"></script>
+    <script defer src="js/users.js"></script>
+    <script defer src="js/posts.js"></script>
+    <script defer src="js/chat.js"></script>
+    <script defer src="js/app.js"></script>
+  </body>
+</html>
